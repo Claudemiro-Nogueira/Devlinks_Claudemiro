@@ -1,0 +1,202 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-background) no-repeat top center/cover;
+  height: 100vh;
+}
+
+:root {
+  --text-color: white;
+  --bg-background: url(./assets/fundo.jpg);
+  --border-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --color-light: rgba(255, 255, 255, 0.1);
+  --switch-bg-url: url(./assets/moon.svg);
+}
+
+.light {
+  --text-color: black;
+  --bg-background: url(./assets/fundo-branco.jpg);
+  --border-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.1);
+  --color-light: rgb(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+body * {
+  color: var(--text-color);
+  font-family: "Inter", sans-serif;
+}
+
+#container {
+  width: 100%;
+  max-width: 588px;
+  margin: 56px auto 0px;
+  padding: 0 24px;
+}
+/*Profile - contem imagem e nome*/
+
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px;
+  border-radius: 50%;
+}
+
+#profile p {
+  font-weight: 500px;
+  line-height: 24px;
+  margin-top: 8px;
+  display: block;
+}
+
+/* switch*/
+#switch {
+  position: relative;
+  margin: 4px auto;
+  width: 64px;
+}
+#switch button {
+  z-index: 1;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 50%;
+  background: white var(--switch-bg-url) no-repeat center;
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0px;
+
+  animation: slide-back 0.2s;
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 9999px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.light #switch button {
+  animation: slide-in 0.2s forwards;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+}
+
+ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 24px;
+
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  border-radius: 8px;
+
+  text-decoration: none;
+  font-weight: 500;
+
+  transition: background 0.2s;
+}
+
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+#social-links {
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  padding: 0px 24px;
+}
+
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  padding: 16px;
+  border-radius: 50%;
+}
+
+#social-links a:hover {
+  background: var(--color-light);
+}
+
+footer {
+  text-align: center;
+  padding: 24px;
+}
+/*Media queries*/
+
+@media (min-width: 700px) {
+  :root {
+    --bg-background: url(./assets/bg-pc.jpg);
+  }
+  .light {
+    --bg-background: url(./assets/bg-pc-light.jpg);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    left: 0px;
+  }
+  to {
+    left: 50%;
+  }
+}
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
+}
+
+/*Pagina sobre*/
+
+#containerSobre {
+  margin: 100px auto;
+  width: 700px;
+  text-align: center;
+  background: rgb(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 15px 0px 10px;
+  font-weight: 500;
+}
+
+#containerSobre p {
+  padding: 10px 24px;
+}
+
+#containerSobre h1 {
+  text-align: center;
+}
